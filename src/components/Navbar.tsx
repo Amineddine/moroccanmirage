@@ -3,7 +3,7 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,11 +17,10 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-700 ${
-          isScrolled 
-            ? "bg-obsidian/95 backdrop-blur-2xl py-6 border-b border-white/5 shadow-2xl" 
-            : "bg-gradient-to-b from-obsidian/80 to-transparent py-10"
-        }`}
+        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-700 ${isScrolled
+          ? "bg-obsidian/95 backdrop-blur-2xl py-6 border-b border-white/5 shadow-2xl"
+          : "bg-gradient-to-b from-obsidian/80 to-transparent py-10"
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -29,31 +28,72 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-[1500px] items-center justify-between px-8 lg:px-16">
           {/* Main Logo */}
           <div className="flex-1">
-            <Link href="/" className="font-serif text-2xl lg:text-3xl tracking-widest text-alabaster">
-              MOROCCAN <span className="text-sandstone">MIRAGE</span>
+            <Link href="/" className="flex items-center group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/moroccanmiragelogo.png" alt="Logo" className="h-20 w-auto lg:h-32 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] contrast-150 transition-transform group-hover:scale-105" />
+              <span className="font-serif text-xl lg:text-xl tracking-widest text-alabaster hidden sm:block -ml-2 lg:-ml-6">
+                MOROCCAN <span className="text-sandstone">MIRAGE</span>
+              </span>
             </Link>
           </div>
 
           {/* Centered Navigation */}
-          <div className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-16 xl:flex">
-            {["Experiences", "Our Story", "Gallery"].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="font-sans text-[13px] font-bold uppercase tracking-[0.4em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.5em]"
-              >
-                {item}
+          <div className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 xl:flex">
+            <Link href="/" className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.3em]">
+              Home
+            </Link>
+            <Link href="#about" className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.3em]">
+              About Us
+            </Link>
+            <div className="group relative py-8">
+              <Link href="/tours" className="flex items-center gap-1 font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all group-hover:text-alabaster">
+                Morocco Tours <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
               </Link>
-            ))}
+              <div className="absolute left-0 top-full mt-0 hidden flex-col whitespace-nowrap bg-white py-4 shadow-xl group-hover:flex">
+                {[
+                  { name: "From Marrakech", path: "marrakech" },
+                  { name: "From Casablanca", path: "casablanca" },
+                  { name: "From Tangier", path: "tangier" },
+                  { name: "From Fes", path: "fes" }
+                ].map((item) => (
+                  <Link key={item.path} href={`/tours/${item.path}`} className="px-6 py-3 font-sans text-[13px] text-obsidian hover:bg-slate-50 transition-colors">
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="group relative py-8">
+              <button className="flex items-center gap-1 font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all group-hover:text-alabaster">
+                Excursions <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
+              </button>
+              <div className="absolute left-0 top-full mt-0 hidden flex-col whitespace-nowrap bg-white py-4 shadow-xl group-hover:flex">
+                {[
+                  "1 day trip from Marrakech to Imlil",
+                  "1 Day trip to Ourika",
+                  "1 Day trip from Marrakech to Agafay desert",
+                  "1 Day Trip To Cefchaouen",
+                  "1 Day Trip To Essaouira",
+                  "1 Day Trip To Ait Ben Haddou",
+                  "1 Day trip Marrakech to Ouzoud Waterfalls"
+                ].map((item) => (
+                  <Link key={item} href={`#${item.toLowerCase().replace(/ /g, "-")}`} className="px-6 py-3 font-sans text-[13px] text-obsidian hover:bg-slate-50 transition-colors">
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <Link href="#contact" className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.3em]">
+              Contact
+            </Link>
           </div>
 
           {/* Right Action */}
           <div className="hidden xl:block">
             <a
               href="#book"
-              className="group relative overflow-hidden bg-sandstone px-12 py-5 font-sans text-sm font-bold uppercase tracking-[0.3em] text-obsidian transition-colors hover:bg-white"
+              className="group relative overflow-hidden bg-obsidian px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.3em] text-alabaster transition-colors hover:bg-sandstone hover:text-obsidian border border-sandstone/30"
             >
-              <span className="relative z-10">Inquire Now</span>
+              <span className="relative z-10">Book Now</span>
             </a>
           </div>
 
@@ -73,23 +113,29 @@ export default function Navbar() {
         animate={mobileMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: "-100%" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex flex-col items-center gap-12">
-          {["Experiences", "Our Story", "Gallery"].map((item) => (
+        <div className="flex flex-col items-center gap-8 overflow-y-auto w-full h-full justify-center pb-20">
+          {[
+            { label: "Home", href: "/" },
+            { label: "About Us", href: "/#about" },
+            { label: "Morocco Tours", href: "/tours" },
+            { label: "Excursions", href: "/#excursions" },
+            { label: "Contact", href: "/#contact" }
+          ].map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="font-serif text-5xl sm:text-6xl uppercase tracking-[0.2em] text-alabaster hover:text-sandstone transition-colors"
+              className="font-serif text-3xl sm:text-5xl uppercase tracking-[0.2em] text-alabaster hover:text-sandstone transition-colors"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
           <a
             href="#book"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-12 bg-sandstone px-16 py-6 font-sans text-base font-bold uppercase tracking-[0.3em] text-obsidian"
+            className="mt-8 bg-obsidian border border-sandstone/30 px-12 py-5 font-sans text-base font-bold uppercase tracking-[0.3em] text-alabaster transition-colors hover:bg-sandstone hover:text-obsidian"
           >
-            Inquire Now
+            Book Now
           </a>
         </div>
       </motion.div>

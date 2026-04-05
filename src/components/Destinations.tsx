@@ -6,7 +6,7 @@ const destinations = [
   {
     name: "Marrakech",
     desc: "The bustling Red City where vibrant souks meet the serene Palmeraie.",
-    img: "https://images.unsplash.com/photo-1597211684565-dca64d72bc38?q=80&w=2600&auto=format&fit=crop",
+    img: "/marrakech tour 7.jpg",
     colSpan: "md:col-span-8",
     height: "h-[500px]",
     speed: 0,
@@ -14,7 +14,7 @@ const destinations = [
   {
     name: "Casablanca",
     desc: "A modern metropolis defined by striking Art Deco and grand mosques.",
-    img: "https://images.unsplash.com/photo-1577147443647-81856d5151af?q=80&w=2600&auto=format&fit=crop",
+    img: "/casablanca tour 2.jpg",
     colSpan: "md:col-span-4",
     height: "h-[400px]",
     speed: 20,
@@ -22,7 +22,7 @@ const destinations = [
   {
     name: "Fes",
     desc: "The cultural and spiritual heart of Morocco, steeped in medieval charm.",
-    img: "https://images.unsplash.com/photo-1552084110-4ed5145b206f?q=80&w=2600&auto=format&fit=crop",
+    img: "/fes tour 1.jpg",
     colSpan: "md:col-span-5",
     height: "h-[450px]",
     speed: -10,
@@ -30,7 +30,7 @@ const destinations = [
   {
     name: "Tangier",
     desc: "Where the Mediterranean meets the Atlantic, a historic gateway.",
-    img: "https://images.unsplash.com/photo-1629853381617-6f9172289c09?q=80&w=2600&auto=format&fit=crop",
+    img: "/tangier tour 4.jpg",
     colSpan: "md:col-span-7",
     height: "h-[550px]",
     speed: 10,

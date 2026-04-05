@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "./";
 
 @theme inline {
   --color-obsidian: #0A0A0A;
@@ -38,6 +39,7 @@ html.lenis, html.lenis body {
 
 html {
   overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 body {

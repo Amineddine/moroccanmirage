@@ -22,18 +22,18 @@ export default function Story() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           
           {/* Images Left */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-6 w-full h-[600px] lg:h-[800px] items-start">
+           <div className="lg:col-span-6 grid grid-cols-2 gap-6 w-full h-[600px] lg:h-[800px] items-start">
              {/* eslint-disable-next-line @next/next/no-img-element */}
              <img
-              src="https://images.unsplash.com/photo-1549449339-ff677b1029c4?w=1200&q=80"
+              src="/TOURS FROM MARRAKECH.jpg"
               alt="Morocco desert sunset"
-              className="h-full w-full object-cover grayscale transition-all duration-[2s] hover:grayscale-0 rounded-sm"
+              className="h-full w-full object-cover transition-all duration-[2s] hover:scale-105 rounded-sm"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1533816692135-2605e505a74e?w=1000&q=80"
+              src="/CHEFCHAOUEN.avif"
               alt="Moroccan architecture"
-              className="h-4/5 w-full object-cover grayscale transition-all duration-[2s] hover:grayscale-0 self-end mt-24 rounded-sm shadow-2xl"
+              className="h-4/5 w-full object-cover transition-all duration-[2s] hover:scale-105 self-end mt-24 rounded-sm shadow-2xl"
             />
           </div>
 

@@ -5,38 +5,38 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1200&q=80", alt: "Moroccan doorway" },
-  { src: "https://images.unsplash.com/photo-1582200375685-6497fba9ed92?w=1200&q=80", alt: "Hassan II Mosque" },
-  { src: "https://images.unsplash.com/photo-1554160408-01d70e53a3c9?w=1200&q=80", alt: "Marrakech souk" },
-  { src: "https://images.unsplash.com/photo-1512453979798-5ea266f8e211?w=1200&q=80", alt: "Sahara camel trek" },
-  { src: "https://images.unsplash.com/photo-1597211684565-dca64d72bc38?w=1200&q=80", alt: "Moroccan riad" },
-  { src: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=1200&q=80", alt: "Mountain panorama" },
+  { src: "/casablanca tour 2.jpg", alt: "Casablanca Architecture" },
+  { src: "/fes tour 6.jpg", alt: "Fes Medina View" },
+  { src: "/marrakech tour 6.jpeg", alt: "Marrakech Lifestyle" },
+  { src: "/AGAFAY.jpeg", alt: "Agafay Desert Expanse" },
+  { src: "/OURIKA.avif", alt: "Ourika Valley Colors" },
+  { src: "/tangier tour 3.jpg", alt: "Tangier Coast Escapes" },
 ];
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
-    <section id="gallery" className="bg-alabaster pb-48 lg:pb-64 selection:bg-obsidian selection:text-sandstone">
+    <section id="gallery" className="w-full flex flex-col items-center overflow-x-hidden bg-alabaster pb-48 lg:pb-64 selection:bg-obsidian selection:text-sandstone">
       {/* Block of space between Testimonials and Visual Diary */}
       <div className="h-[10vh] sm:h-[15vh] lg:h-[25vh] w-full bg-alabaster" />
       
-      <div className="mx-auto max-w-[1440px] translate-x-[110px]">
+      <div className="w-full max-w-[1440px] px-6 lg:px-16 flex flex-col items-center">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-48 md:mb-56 flex flex-col items-center justify-center text-center px-6 lg:px-16 w-full"
+          className="mb-48 md:mb-56 flex flex-col items-center justify-center text-center w-full"
         >
-          <span className="mb-10 font-sans text-sm font-semibold uppercase tracking-[0.6em] text-sandstone-dark text-center">
+          <span className="mb-10 font-sans text-sm font-semibold uppercase tracking-[0.6em] text-sandstone-dark text-center w-full block">
             Vol. 01 — Essence of Morocco
           </span>
-          <h2 className="font-serif text-[4rem] sm:text-7xl lg:text-[8rem] leading-[1.05] tracking-tight text-obsidian text-center">
+          <h2 className="font-serif text-[4rem] sm:text-7xl lg:text-[8rem] leading-[1.05] tracking-tight text-obsidian text-center w-full block">
             Visual Diary
           </h2>
-          <p className="mt-16 max-w-2xl mx-auto font-sans text-base lg:text-lg font-light leading-[2.2] text-obsidian/60 text-center">
+          <p className="mt-16 max-w-2xl mx-auto font-sans text-base lg:text-lg font-light leading-[2.2] text-obsidian/60 text-center w-full block">
             A glimpse into the eternal soul of Morocco. Light, shadow, and the profound
             silence of the desert captured in highly curated cinematic frames.
           </p>
@@ -44,8 +44,8 @@ export default function Gallery() {
       </div>
 
       {/* Flush Masonry Contact Sheet */}
-      <div className="w-full px-6 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-2">
+      <div className="w-full max-w-[1440px] px-6 lg:px-16 flex justify-center">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-2 w-full">
           {images.map((img, i) => (
             <motion.div
               key={i}

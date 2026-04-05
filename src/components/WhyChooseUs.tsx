@@ -11,17 +11,17 @@ const pillars = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-obsidian py-48 lg:py-72 text-alabaster">
+    <section className="w-full flex flex-col items-center overflow-x-hidden bg-obsidian py-48 lg:py-72 text-alabaster">
       {/* Block of space between Experiences and The Standard */}
       <div className="h-[10vh] sm:h-[15vh] lg:h-[25vh] w-full bg-obsidian" />
       
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-16 translate-x-[110px]">
+      <div className="w-full max-w-[1440px] px-6 lg:px-16 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mb-24 md:mb-32 flex flex-col items-center text-center"
+          className="mb-24 md:mb-32 flex flex-col items-center justify-center text-center w-full"
         >
           <span className="mb-8 block font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-sandstone">
             The Standard
@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
         </motion.div>
 
         {/* Brutalist Hairline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-alabaster/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-alabaster/10 w-full place-items-center justify-center text-center">
           {pillars.map((p, i) => (
             <motion.div
               key={i}
