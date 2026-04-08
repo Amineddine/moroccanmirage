@@ -82,7 +82,7 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-            <Link href="#contact" className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.3em]">
+            <Link href="/contact" className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-alabaster/70 transition-all hover:text-alabaster hover:tracking-[0.3em]">
               Contact
             </Link>
           </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
           {/* Right Action */}
           <div className="hidden xl:block">
             <a
-              href="#book"
+              href="/contact"
               className="group relative overflow-hidden bg-obsidian px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.3em] text-alabaster transition-colors hover:bg-sandstone hover:text-obsidian border border-sandstone/30"
             >
               <span className="relative z-10">Book Now</span>
@@ -119,7 +119,7 @@ export default function Navbar() {
             { label: "About Us", href: "/#about" },
             { label: "Morocco Tours", href: "/tours" },
             { label: "Excursions", href: "/#excursions" },
-            { label: "Contact", href: "/#contact" }
+            { label: "Contact", href: "/contact" }
           ].map((item) => (
             <Link
               key={item.label}
@@ -130,13 +130,13 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <a
-            href="#book"
+          <Link
+            href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="mt-8 bg-obsidian border border-sandstone/30 px-12 py-5 font-sans text-base font-bold uppercase tracking-[0.3em] text-alabaster transition-colors hover:bg-sandstone hover:text-obsidian"
           >
             Book Now
-          </a>
+          </Link>
         </div>
       </motion.div>
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,18 +13,26 @@ export default function Footer() {
           
           <div className="flex flex-col items-center md:items-start">
             <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.4em] text-sandstone-dark mb-8">About</p>
-            <p className="font-sans text-sm font-light leading-[2] text-obsidian/70 max-w-xs">
+            <p className="font-sans text-sm font-light leading-[2] text-obsidian/70 max-w-xs mb-8">
               Elevating your Moroccan journey with unparalleled luxury, bespoke
               itineraries, and elite professional transportation.
             </p>
+            <a href="tel:+212777767855" className="flex items-center gap-3 font-sans text-xs text-obsidian/60 hover:text-sandstone-dark transition-colors mb-4 group">
+              <Phone size={13} strokeWidth={1.5} className="text-sandstone-dark" />
+              +212 777-767-855
+            </a>
+            <a href="mailto:moroccomirage@gmail.com" className="flex items-center gap-3 font-sans text-xs text-obsidian/60 hover:text-sandstone-dark transition-colors group">
+              <Mail size={13} strokeWidth={1.5} className="text-sandstone-dark" />
+              moroccomirage@gmail.com
+            </a>
           </div>
 
           <div className="flex flex-col items-center">
-            <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.4em] text-sandstone-dark mb-8">Social</p>
+            <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.4em] text-sandstone-dark mb-8">Navigate</p>
             <ul className="space-y-6 font-sans text-xs font-medium uppercase tracking-[0.3em] text-obsidian">
-              <li><a href="#" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">Instagram <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></a></li>
-              <li><a href="#" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">Facebook <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></a></li>
-              <li><a href="#" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">X <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></a></li>
+              <li><Link href="/tours" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">Tours <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></Link></li>
+              <li><Link href="/excursions" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">Excursions <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></Link></li>
+              <li><Link href="/contact" className="group flex items-center justify-center md:justify-start gap-2 hover:text-sandstone-dark transition-colors">Contact <ArrowUpRight size={14} className="opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" /></Link></li>
             </ul>
           </div>
 
