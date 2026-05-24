@@ -107,9 +107,12 @@ export default function HomePage() {
     <main>
       {/* SECTION 1 — HERO */}
       <section className="relative h-screen overflow-hidden grain">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/backgroundvid.mp4" type="video/mp4" />
-        </video>
+        <div
+          className="absolute inset-0"
+          dangerouslySetInnerHTML={{
+            __html: '<video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><source src="/backgroundvid.mp4" type="video/mp4"></video>'
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70" />
         <div className="relative h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
