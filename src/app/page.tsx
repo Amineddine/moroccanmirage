@@ -80,6 +80,14 @@ const gallery = [
 ]
 
 export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.muted = true
+    v.play().catch(() => {})
+  }, [])
+
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] })
   const s0 = useTransform(scrollYProgress, [0, 0.2, 0.25], [1, 1, 0])
@@ -107,7 +115,7 @@ export default function HomePage() {
     <main>
       {/* SECTION 1 — HERO */}
       <section className="relative h-screen overflow-hidden grain">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+        <video ref={videoRef} autoPlay loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/backgroundvid.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70" />
