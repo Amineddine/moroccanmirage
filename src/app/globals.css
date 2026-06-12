@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── The Mirage Atlas — night-desert cartography ── */
+  --color-night: #0d0a07;
+  --color-abyss: #080604;
+  --color-panel: #15100a;
+  --color-panel-2: #1c150d;
+  --color-bone: #ebe1cf;
+  --color-bone-dim: #cfc3ac;
+  --color-gold: #c9a227;
+  --color-amber: #e2ae45;
+  --color-clay: #a35c32;
+  --color-muted: #a18f77;
+  --color-faint: #6b5d49;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-instrument);
+  --font-mono: var(--font-plex-mono);
+
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+:root {
+  --gold-line: rgba(201, 162, 39, 0.28);
+  --bone-line: rgba(235, 225, 207, 0.1);
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-night);
+  color: var(--color-bone);
+  font-family: var(--font-instrument), sans-serif;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-abyss);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-abyss); }
+::-webkit-scrollbar-thumb {
+  background: #3a2f1d;
+  border: 2px solid var(--color-abyss);
+  border-radius: 5px;
+}
+
+/* ── Atlas primitives ──
+   Kept in the components layer so Tailwind utilities can override them
+   (e.g. `absolute` must beat .img-grade's position). */
+@layer components {
+  .font-display { font-family: var(--font-fraunces), serif; }
+  .font-brand { font-family: var(--font-marcellus), serif; }
+
+  /* mono uppercase plate label — "PLATE 01 · SERVICES" */
+  .plate-label {
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .mono-note {
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .rule-gold { background: linear-gradient(90deg, transparent, var(--gold-line) 18%, var(--gold-line) 82%, transparent); height: 1px; }
+  .rule-bone { background: var(--bone-line); height: 1px; }
+
+  /* map-sheet corner ticks */
+  .corner-ticks { position: relative; }
+  .corner-ticks::before,
+  .corner-ticks::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+  }
+  .corner-ticks::before {
+    top: 0; left: 0;
+    border-top: 1px solid var(--gold-line);
+    border-left: 1px solid var(--gold-line);
+  }
+  .corner-ticks::after {
+    bottom: 0; right: 0;
+    border-bottom: 1px solid var(--gold-line);
+    border-right: 1px solid var(--gold-line);
+  }
+
+  /* hairline frame */
+  .sheet-frame {
+    border: 1px solid var(--bone-line);
+  }
+
+  /* big outlined brand mark */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(235, 225, 207, 0.18);
+    color: transparent;
+  }
+
+  /* image treatment: warm matte grade */
+  .img-grade { position: relative; }
+  .img-grade::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(13, 10, 7, 0.22), rgba(13, 10, 7, 0) 32%, rgba(13, 10, 7, 0) 60%, rgba(13, 10, 7, 0.5)),
+      radial-gradient(120% 90% at 50% 110%, rgba(201, 162, 39, 0.12), transparent 55%);
+    mix-blend-mode: normal;
+  }
+
+  /* dotted leader line, like a table of contents */
+  .leader {
+    flex: 1;
+    border-bottom: 1px dotted rgba(161, 143, 119, 0.4);
+    transform: translateY(-0.35em);
+    margin: 0 0.9rem;
+  }
+}
+
+input, select, textarea {
+  outline: none;
+}
+
+.field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--bone-line);
+  padding: 0.65rem 0;
+  color: var(--color-bone);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.field::placeholder { color: rgba(161, 143, 119, 0.55); }
+.field:focus { border-bottom-color: var(--color-gold); }
+select.field { appearance: none; cursor: pointer; }
+select.field option { background: var(--color-panel); color: var(--color-bone); }
+
+/* reduced motion: kill everything non-essential */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
