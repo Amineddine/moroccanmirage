@@ -107,7 +107,7 @@ export default function Departures() {
                   {NUMERALS[i]}
                 </span>
                 {/* city name overlapping bottom edge */}
-                <h3 className="font-display absolute bottom-4 left-5 z-10 text-[clamp(2.6rem,4.6vw,4.6rem)] font-light leading-none text-bone drop-shadow-[0_2px_18px_rgba(8,6,4,0.8)]">
+                <h3 className="font-display absolute bottom-4 left-5 z-10 text-[clamp(2.6rem,4.6vw,4.6rem)] font-light leading-none text-bone drop-shadow-[0_2px_18px_rgba(244,237,221,0.9)]">
                   {city.name}
                 </h3>
               </div>

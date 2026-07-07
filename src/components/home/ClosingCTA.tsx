@@ -16,7 +16,7 @@ export default function ClosingCTA() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(90% 70% at 50% 30%, transparent, rgba(8,6,4,0.85) 80%)",
+            "radial-gradient(90% 70% at 50% 30%, transparent, rgba(235,225,202,0.85) 80%)",
         }}
       />
 

@@ -18,7 +18,18 @@ export async function generateMetadata({
   const { id } = await params;
   const ex = getExcursion(id);
   if (!ex) return {};
-  return { title: ex.title, description: ex.blurb };
+  return {
+    title: ex.title,
+    description: ex.blurb,
+    alternates: { canonical: `/excursions/${id}` },
+    openGraph: {
+      title: `${ex.title} — Moroccan Mirage`,
+      description: ex.blurb,
+      url: `/excursions/${id}`,
+      type: "website",
+      images: [{ url: ex.hero, width: 1920, height: 1080, alt: ex.location }],
+    },
+  };
 }
 
 export default async function ExcursionPage({

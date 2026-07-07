@@ -14,6 +14,7 @@ import {
   GRAND_PRACTICAL,
   GRAND_FAQ,
 } from "@/data/grand-traverse";
+import { SITE_URL } from "@/data/site";
 
 const GT = GRAND_TRAVERSE;
 
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
   title: { absolute: "The Grand Traverse — 12-Day Morocco Tour | Moroccan Mirage" },
   description:
     "A private 12-day journey across Morocco: Chefchaouen's blue medina, imperial Fez, the Sahara at Erg Chebbi, the Kasbah Road, Marrakech and Essaouira. Tailor-made by Moroccan Mirage.",
+  alternates: { canonical: "/tours/the-grand-traverse" },
   keywords: [
     "morocco grand tour",
     "12 day morocco itinerary",
@@ -41,18 +43,19 @@ export const metadata: Metadata = {
   },
 };
 
-// ⚠︎ VERIFY price + canonical url and add real image URLs before shipping.
 const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "TouristTrip",
   name: "The Grand Traverse",
   description:
     "A private 12-day, 11-night grand tour of Morocco from Casablanca through Rabat, Chefchaouen, Fez, the Sahara (Erg Chebbi), the Kasbah Road, Marrakech and Essaouira.",
+  url: `${SITE_URL}/tours/the-grand-traverse`,
+  image: `${SITE_URL}${GRAND_TRAVERSE.hero}`,
   touristType: ["Cultural", "Adventure", "Sightseeing"],
   provider: {
     "@type": "TravelAgency",
     name: "Moroccan Mirage",
-    url: "https://moroccanmirage.com",
+    url: SITE_URL,
   },
   itinerary: {
     "@type": "ItemList",
@@ -71,8 +74,8 @@ const JSON_LD = {
   },
   offers: {
     "@type": "Offer",
-    price: "1890",
-    priceCurrency: "EUR",
+    price: "4800",
+    priceCurrency: "USD",
     description: "From, per person sharing (indicative)",
   },
 };
@@ -126,7 +129,7 @@ export default function GrandTraversePage() {
             <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
               <Stat label="Duration" value={`${GT.days}D / ${GT.nights}N`} />
               <Stat label="Route" value={`${GT.start} ⟶ ${GT.end}`} />
-              <Stat label="Distance" value={`~${GT.distanceKm.toLocaleString("en-US")} km`} />
+              <Stat label="Distance" value={`~${GT.distanceMi.toLocaleString("en-US")} mi`} />
               <Stat label="Stays" value={`${GT.stays} properties`} />
               <Stat label="Style" value={GT.style} />
             </div>
@@ -217,7 +220,7 @@ export default function GrandTraversePage() {
                     <div className="flex items-baseline justify-between">
                       <span className="mono-note">From</span>
                       <span className="font-display text-xl italic text-amber">
-                        €{GT.priceFrom.toLocaleString("en-US")}
+                        ${GT.priceFrom.toLocaleString("en-US")}
                       </span>
                     </div>
                     <p className="mono-note mt-2 !text-[9px]">

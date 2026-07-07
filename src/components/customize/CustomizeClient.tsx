@@ -151,7 +151,7 @@ export default function CustomizeClient() {
           <div className="mt-4 h-px w-full bg-bone/10">
             <div
               className="h-px bg-gold transition-all duration-700 ease-out"
-              style={{ width: `${((step + 1) / STEPS.length) * 100}%`, boxShadow: "0 0 8px rgba(226,174,69,0.5)" }}
+              style={{ width: `${((step + 1) / STEPS.length) * 100}%`, boxShadow: "0 0 8px rgba(168,118,29,0.4)" }}
             />
           </div>
         </div>

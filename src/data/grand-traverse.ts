@@ -4,12 +4,15 @@
  * single meridian city, so it lives outside the CityId system with its own
  * richer day model and a dedicated route at /tours/the-grand-traverse.
  *
+ * Distances are shown in miles (US market) per client direction — km originals
+ * in comments. Price $4,800 pp sharing set by the client (2026-07-07).
+ * Property names Hotel Cherifa (Chefchaouen) & Villa Quieta (Essaouira)
+ * corrected per client.
+ *
  * ⚠︎ VERIFY before publishing (kept exactly as briefed, not guessed):
- *   - Price €1,890 pp sharing is an indicative placeholder — set the real
- *     rate, seasons & single supplement.
- *   - Total distance ~2,400 km and all per-day drive figures.
+ *   - Total distance (~2,400 km / ~1,490 mi) and all per-day drive figures.
  *   - Property names/spellings: Xaluca Erfoud, Sawadi (and that Skoura is the
- *     intended overnight vs. Ouarzazate), Villa Qouita.
+ *     intended overnight vs. Ouarzazate).
  *   - Entrance-fee policy ("Monument/site entrance fees unless stated").
  */
 
@@ -42,8 +45,8 @@ export const GRAND_TRAVERSE = {
   days: 12,
   nights: 11,
   style: "Private · Tailor-made · Chauffeured",
-  priceFrom: 1890, // ⚠︎ VERIFY — indicative placeholder
-  currency: "EUR",
+  priceFrom: 4800,
+  currency: "USD",
   priceNote: "per person, sharing (indicative)",
   difficulty:
     "Moderate — comfortable pace with some long but scenic driving days; light optional walking in medinas, gorges and dunes.",
@@ -54,7 +57,7 @@ export const GRAND_TRAVERSE = {
     "March–May and September–November (spring adds the Rose Valley bloom; autumn brings clear desert skies). Summer is viable but hot inland/desert; winter is crisp with possible Atlas snow.",
   start: "CMN",
   end: "CMN",
-  distanceKm: 2400, // ⚠︎ VERIFY exact figure for the final routing
+  distanceMi: 1490, // ~2,400 km — ⚠︎ VERIFY exact figure for the final routing
   hero: "/generated/gt-hero.jpg",
   stays: 9,
   regions: [
@@ -105,7 +108,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Arrival & the Capital on the Atlantic",
     theme: "Atlantic Overture",
     route: "Casablanca (arrival) → Rabat",
-    drive: "approx. 90 km / ~1h", // ⚠︎ VERIFY
+    drive: "approx. 55 mi / ~1h", // ~90 km — ⚠︎ VERIFY
     body: "Your odyssey begins the moment you land. A Moroccan Mirage host meets you at Casablanca's Mohammed V Airport and your private, air-conditioned vehicle carries you north along the Atlantic to Rabat — Morocco's calm, green, ocean-facing capital, and the most understated of its four imperial cities. The afternoon eases you into the country's rhythm: the Kasbah of the Udayas, a fortified quarter of blue-and-white lanes tumbling toward the mouth of the Bou Regreg river, with its Andalusian garden and café terrace over the water; the Hassan Tower, the truncated minaret of a mosque begun in the 12th century and never finished, presiding over a field of broken columns; and the marble Mausoleum of Mohammed V, guarded by mounted royal sentries. If time allows, the romantic ruins and storks' nests of the Chellah necropolis make a quiet, atmospheric close to the day.",
     highlights: [
       "Kasbah of the Udayas",
@@ -126,7 +129,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Into the Blue: Chefchaouen",
     theme: "The Blue Hour",
     route: "Rabat → Chefchaouen",
-    drive: "approx. 200 km / ~4h", // ⚠︎ VERIFY
+    drive: "approx. 125 mi / ~4h", // ~200 km — ⚠︎ VERIFY
     body: "This morning we climb from the coast into the Rif Mountains to reach Chefchaouen, the fabled \"Blue Pearl.\" Founded in 1471 as a fortress town, its medina is famously washed in every conceivable shade of indigo, cobalt and sky — a colour tradition whose origins locals variously trace to Andalusian and Jewish heritage, to keeping cool, or simply to beauty. The point isn't the explanation; it's the wandering. You'll drift up stepped alleys hung with flowerpots and hand-woven blankets, past mountain-spring fountains and artisan doorways, to the shady Plaza Uta el-Hammam beneath the red-earth kasbah and octagonal mosque minaret. As the light softens, we climb to the Spanish Mosque viewpoint on the hillside opposite, where the whole blue town glows gold at sunset against the Rif peaks.",
     highlights: [
       "The Blue Medina",
@@ -136,7 +139,7 @@ export const GRAND_DAYS: GrandDay[] = [
       "Spanish Mosque viewpoint",
     ],
     meals: "Breakfast",
-    overnight: { property: "Riad Chrifa", city: "Chefchaouen" },
+    overnight: { property: "Hotel Cherifa", city: "Chefchaouen" },
     image: {
       src: "/generated/gt-chefchaouen.jpg",
       alt: "Carved blue doorway with potted flowers on an indigo stairway in Chefchaouen",
@@ -147,7 +150,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Roman Echoes & the Spiritual City",
     theme: "Roman Echoes",
     route: "Chefchaouen → Volubilis → (Moulay Idriss) → Fez",
-    drive: "approx. 200 km / ~4h plus sightseeing", // ⚠︎ VERIFY
+    drive: "approx. 125 mi / ~4h plus sightseeing", // ~200 km — ⚠︎ VERIFY
     body: "Descending south toward the imperial heartland, we make a landmark stop at Volubilis, the best-preserved Roman city in Morocco and a UNESCO World Heritage Site. Once a prosperous provincial capital at the empire's far southwestern edge, it still stands among rolling wheat fields: a triumphal arch, the columns of the basilica and capitol, olive-oil presses, and — most memorably — a series of astonishingly intact floor mosaics depicting Orpheus, Bacchus, Hercules and the seasons, open to the sky where the villas once stood. Nearby rises the sacred, whitewashed pilgrimage town of Moulay Idriss, cradling the tomb of the founder of Morocco's first dynasty. By late afternoon we enter Fez, the country's spiritual and intellectual soul, ready for a full day inside its walls tomorrow.",
     highlights: [
       "Volubilis (UNESCO)",
@@ -190,7 +193,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Across the Atlas to the Desert's Edge",
     theme: "Across the Atlas",
     route: "Fez → Ifrane → Azrou → Midelt → Ziz Valley → Erfoud",
-    drive: "approx. 370 km / ~6.5–7h (a long, spectacular day)", // ⚠︎ VERIFY
+    drive: "approx. 230 mi / ~6.5–7h incl. breaks (a long, spectacular day)", // ~370 km — ⚠︎ VERIFY
     body: "One of the great driving days in Morocco, unspooling through half a dozen landscapes. We cross the Middle Atlas via Ifrane, an incongruous alpine town of pitched roofs and clipped gardens nicknamed the \"Switzerland of Morocco,\" then the cedar forests of Azrou, home to troops of wild Barbary macaques. The road climbs and falls through Berber plateaus and the mining town of Midelt before the terrain turns ochre and lunar. Then comes the highlight: the Ziz Valley, where a single river conjures an unbroken ribbon of tens of thousands of date palms threading between red canyon walls — the classic gateway image of the Sahara. We overnight in Erfoud, the fossil-and-date town on the desert's threshold.",
     highlights: [
       "Ifrane",
@@ -211,7 +214,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Into the Sea of Sand: Erg Chebbi",
     theme: "Sahara Gold",
     route: "Erfoud → Merzouga → camel trek into Erg Chebbi",
-    drive: "approx. 55 km / ~1h, then camel trek",
+    drive: "approx. 35 mi / ~1h, then camel trek", // ~55 km
     body: "A short transfer brings us to Merzouga and the first sight of Erg Chebbi — a sea of wind-sculpted dunes rising as high as 150 metres, glowing apricot, rose and deep gold as the sun moves. There's time to rest through the heat of the day before the afternoon's centrepiece: as the light lengthens, you mount a camel and your caravan sets off into the sand to a luxury desert camp tucked among the dunes. You'll climb a ridge to watch the sun melt into the horizon, dine under the open sky, and — if the season obliges — fall asleep beneath a Milky Way undimmed by any city light. (Optional add-ons: 4×4 dune driving, sandboarding, a visit to Khamlia's Gnaoua musicians, sunrise over the crest.)",
     highlights: [
       "Erg Chebbi dunes",
@@ -232,7 +235,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "The Road of a Thousand Kasbahs",
     theme: "The Kasbah Road",
     route: "Merzouga → Tinghir → Todgha Gorge → Dadès Valley → Skoura",
-    drive: "approx. 360 km / ~6.5h with stops", // ⚠︎ VERIFY
+    drive: "approx. 225 mi / ~6.5h with stops", // ~360 km — ⚠︎ VERIFY
     body: "Wake for sunrise over the dunes — the finest light of the whole desert — before we turn west onto the legendary Road of a Thousand Kasbahs, following the old caravan route between palmeries and fortified earthen villages. We pause at the Todgha Gorge, where a cold clear river has cut a slot canyon between sheer limestone cliffs rising up to 300 metres, narrow enough in places to touch both walls. The road then winds through the Dadès Valley, past rose-coloured rock formations and ribbons of green oasis, before we reach the serene palm grove of Skoura, an oasis studded with historic kasbahs — a tranquil place to spend the night away from the crowds.",
     highlights: [
       "Sahara sunrise",
@@ -253,7 +256,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Cinema, Sandcastles & the High Atlas",
     theme: "Cinema & Summits",
     route: "Skoura → Ouarzazate → Aït Benhaddou → Tizi n'Tichka → Marrakech",
-    drive: "approx. 200 km / ~4.5–5h with stops", // ⚠︎ VERIFY
+    drive: "approx. 125 mi / ~4.5–5h with stops", // ~200 km — ⚠︎ VERIFY
     body: "A short hop brings us to Ouarzazate, the \"door of the desert\" and Morocco's unlikely film capital — home to Atlas Film Studios (where everything from Lawrence of Arabia to Gladiator and Game of Thrones was shot) and the restored Taourirt Kasbah. The day's showpiece is Aït Benhaddou, a UNESCO-listed ksar of packed-earth towers stacked against a hillside above the Ounila river — the most spectacular fortified village in the country, and instantly familiar from the screen. From there the road climbs the High Atlas, cresting the dramatic Tizi n'Tichka pass (2,260 m) with its switchbacks and mountain-Berber villages, before descending into the palm groves and red walls of Marrakech by evening.",
     highlights: [
       "Aït Benhaddou (UNESCO)",
@@ -296,7 +299,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Atlantic Winds: Essaouira",
     theme: "Atlantic Wind",
     route: "Marrakech → (argan country) → Essaouira",
-    drive: "approx. 190 km / ~3h", // ⚠︎ VERIFY
+    drive: "approx. 120 mi / ~3h", // ~190 km — ⚠︎ VERIFY
     body: "We trade the heat of the interior for the breeze of the coast, driving west through argan groves — the only place on earth the tree grows, and where you may spot goats improbably perched in the branches. On the coast lies Essaouira, a UNESCO-listed 18th-century port whose personality is pure Atlantic: whitewashed and blue-shuttered, salt-scrubbed and unhurried. You'll walk the Skala de la Ville ramparts with their line of bronze cannons and crashing surf, watch the cobalt fishing boats unload at the working harbour, and browse a relaxed medina known for thuya-wood craft, art galleries and gnaoua music. The wind that made Essaouira a kitesurf capital also keeps it cool and calm — the perfect exhale near the journey's end.",
     highlights: [
       "Argan groves",
@@ -306,7 +309,7 @@ export const GRAND_DAYS: GrandDay[] = [
       "Thuya-wood artisans",
     ],
     meals: "Breakfast",
-    overnight: { property: "Villa Qouita", city: "Essaouira" }, // ⚠︎ VERIFY property name/spelling
+    overnight: { property: "Villa Quieta", city: "Essaouira" },
     image: {
       src: "/generated/gt-essaouira.jpg",
       alt: "Goats perched in the branches of an argan tree on the road to Essaouira",
@@ -317,7 +320,7 @@ export const GRAND_DAYS: GrandDay[] = [
     title: "Modern Morocco by the Ocean",
     theme: "Ocean Finale",
     route: "Essaouira → Casablanca",
-    drive: "approx. 350 km / ~5h", // ⚠︎ VERIFY
+    drive: "approx. 215 mi / ~5h", // ~350 km — ⚠︎ VERIFY
     body: "The coast road carries us north to Casablanca, Morocco's largest city and its economic and modern heart — an Art-Deco-meets-Mauresque metropolis far from the medinas of the interior. The centrepiece is the colossal Hassan II Mosque, one of the largest in the world, rising directly over the Atlantic on a promontory where the waves break beneath its glass floor; its minaret climbs to 210 metres, and it is one of the few mosques in Morocco non-Muslims may enter (by guided visit). We'll walk the Corniche seafront and, if time allows, the old medina, before a farewell dinner to toast the eleven days and the length of a country crossed.",
     highlights: [
       "Hassan II Mosque",
@@ -348,13 +351,13 @@ export const GRAND_DAYS: GrandDay[] = [
 // blurbs are evocative placeholders — replace with each property's real copy.
 export const GRAND_STAYS: GrandStay[] = [
   { city: "Rabat", nights: 1, property: "Riad Kalaa", blurb: "An Andalusian-style riad in the heart of the old medina." },
-  { city: "Chefchaouen", nights: 1, property: "Riad Chrifa", blurb: "A blue-washed riad beneath the Rif Mountains." },
+  { city: "Chefchaouen", nights: 1, property: "Hotel Cherifa", blurb: "A blue-washed hideaway beneath the Rif Mountains." },
   { city: "Fez", nights: 2, property: "Riad Ahlam", blurb: "A traditional riad within the walls of Fes el-Bali." },
   { city: "Erfoud", nights: 1, property: "Xaluca Erfoud", blurb: "A desert-style resort at the gateway to the dunes." },
   { city: "Merzouga / Erg Chebbi", nights: 1, property: "Dihya Desert Camp", blurb: "A luxury tented camp set among the Erg Chebbi dunes." },
   { city: "Skoura", nights: 1, property: "Sawadi", blurb: "A tranquil retreat in the Skoura palm oasis." },
   { city: "Marrakech", nights: 2, property: "Palais Andara Riad & Spa", blurb: "An opulent riad and spa near the medina." },
-  { city: "Essaouira", nights: 1, property: "Villa Qouita", blurb: "A serene villa near the Atlantic shore." },
+  { city: "Essaouira", nights: 1, property: "Villa Quieta", blurb: "A serene villa near the Atlantic shore." },
   { city: "Casablanca", nights: 1, property: "Melliber Apart-Hotel", blurb: "A comfortable apart-hotel in the city centre." },
 ];
 
@@ -400,7 +403,7 @@ export const GRAND_FAQ = [
   },
   {
     q: "How much driving is involved?",
-    a: "Around 2,400 km total; two days (to the desert and along the Kasbah Road) are long but among the most scenic.", // ⚠︎ VERIFY
+    a: "Around 1,500 miles total; two days (to the desert and along the Kasbah Road) are long but among the most scenic.", // ~2,400 km — ⚠︎ VERIFY
   },
   {
     q: "When is the best time to go?",

@@ -39,10 +39,10 @@ export default function GrandLog({ days }: { days: GrandDay[] }) {
       gsap.utils.toArray<HTMLElement>("[data-route-node]", scope.current).forEach((node) => {
         gsap.fromTo(
           node,
-          { backgroundColor: "rgba(13,10,7,1)", borderColor: "rgba(107,93,73,0.6)" },
+          { backgroundColor: "rgba(244,237,221,1)", borderColor: "rgba(163,144,111,0.7)" },
           {
-            backgroundColor: "#c9a227",
-            borderColor: "#e2ae45",
+            backgroundColor: "#8f6f14",
+            borderColor: "#a8761d",
             duration: 0.3,
             scrollTrigger: { trigger: node, start: "top 72%" },
           }
@@ -64,8 +64,8 @@ export default function GrandLog({ days }: { days: GrandDay[] }) {
         data-route-line
         className="absolute top-2 bottom-2 left-[7px] w-px origin-top md:left-[9px]"
         style={{
-          background: "linear-gradient(180deg, #e2ae45, #c9a227)",
-          boxShadow: "0 0 8px rgba(226,174,69,0.4)",
+          background: "linear-gradient(180deg, #a8761d, #8f6f14)",
+          boxShadow: "0 0 8px rgba(168,118,29,0.35)",
         }}
       />
 
@@ -77,7 +77,7 @@ export default function GrandLog({ days }: { days: GrandDay[] }) {
               aria-hidden
               data-route-node
               className="absolute left-0 top-[6px] h-[15px] w-[15px] rotate-45 border bg-night md:h-[19px] md:w-[19px]"
-              style={{ borderColor: "rgba(107,93,73,0.6)" }}
+              style={{ borderColor: "rgba(163,144,111,0.7)" }}
             />
 
             <Reveal y={20}>

@@ -4,6 +4,10 @@ export type ItineraryDay = {
   day: number;
   title: string;
   description: string;
+  /** optional per-day enrichment — usually supplied by itinerary-scenes.ts */
+  drive?: string;
+  image?: { src: string; alt: string };
+  highlights?: string[];
 };
 
 export type Tour = {

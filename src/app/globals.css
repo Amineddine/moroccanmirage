@@ -1,18 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── The Mirage Atlas — night-desert cartography ── */
-  --color-night: #0d0a07;
-  --color-abyss: #080604;
-  --color-panel: #15100a;
-  --color-panel-2: #1c150d;
-  --color-bone: #ebe1cf;
-  --color-bone-dim: #cfc3ac;
-  --color-gold: #c9a227;
-  --color-amber: #e2ae45;
+  /* ── The Mirage Atlas — daylight-desert cartography ──
+     Light retheme (client request): warm parchment & sand grounds with
+     ink text and deepened gold. Token names keep their roles:
+     night = primary ground, abyss = deeper ground, bone = primary text. */
+  --color-night: #f4eddd;
+  --color-abyss: #ebe1ca;
+  --color-panel: #faf5e9;
+  --color-panel-2: #f1e8d4;
+  --color-bone: #2b2214;
+  --color-bone-dim: #52452f;
+  --color-gold: #8f6f14;
+  --color-amber: #a8761d;
   --color-clay: #a35c32;
-  --color-muted: #a18f77;
-  --color-faint: #6b5d49;
+  --color-muted: #6e5d44;
+  --color-faint: #a3906f;
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-instrument);
@@ -28,8 +31,8 @@
 }
 
 :root {
-  --gold-line: rgba(201, 162, 39, 0.28);
-  --bone-line: rgba(235, 225, 207, 0.1);
+  --gold-line: rgba(143, 111, 20, 0.34);
+  --bone-line: rgba(43, 34, 20, 0.14);
 }
 
 html {
@@ -45,13 +48,13 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: var(--color-abyss);
+  color: var(--color-panel);
 }
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--color-abyss); }
 ::-webkit-scrollbar-thumb {
-  background: #3a2f1d;
+  background: #c3b088;
   border: 2px solid var(--color-abyss);
   border-radius: 5px;
 }
@@ -111,7 +114,7 @@ body {
 
   /* big outlined brand mark */
   .text-outline {
-    -webkit-text-stroke: 1px rgba(235, 225, 207, 0.18);
+    -webkit-text-stroke: 1px rgba(43, 34, 20, 0.3);
     color: transparent;
   }
 
@@ -124,15 +127,15 @@ body {
     z-index: 1;
     pointer-events: none;
     background:
-      linear-gradient(180deg, rgba(13, 10, 7, 0.22), rgba(13, 10, 7, 0) 32%, rgba(13, 10, 7, 0) 60%, rgba(13, 10, 7, 0.5)),
-      radial-gradient(120% 90% at 50% 110%, rgba(201, 162, 39, 0.12), transparent 55%);
+      linear-gradient(180deg, rgba(43, 34, 20, 0.1), rgba(43, 34, 20, 0) 32%, rgba(43, 34, 20, 0) 60%, rgba(43, 34, 20, 0.26)),
+      radial-gradient(120% 90% at 50% 110%, rgba(168, 118, 29, 0.1), transparent 55%);
     mix-blend-mode: normal;
   }
 
   /* dotted leader line, like a table of contents */
   .leader {
     flex: 1;
-    border-bottom: 1px dotted rgba(161, 143, 119, 0.4);
+    border-bottom: 1px dotted rgba(110, 93, 68, 0.45);
     transform: translateY(-0.35em);
     margin: 0 0.9rem;
   }
@@ -152,7 +155,7 @@ input, select, textarea {
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-.field::placeholder { color: rgba(161, 143, 119, 0.55); }
+.field::placeholder { color: rgba(110, 93, 68, 0.55); }
 .field:focus { border-bottom-color: var(--color-gold); }
 select.field { appearance: none; cursor: pointer; }
 select.field option { background: var(--color-panel); color: var(--color-bone); }

@@ -1,3 +1,6 @@
+/** Canonical production origin — used by metadata, JSON-LD, sitemap & robots. */
+export const SITE_URL = "https://www.moroccanmirage.com";
+
 export const BRAND = {
   name: "Moroccan Mirage",
   tagline: "Editorial Luxury",

@@ -15,6 +15,8 @@ import {
   EXCLUDED,
   type CityId,
 } from "@/data/tours";
+import { enrichDay } from "@/data/itinerary-scenes";
+import { SITE_URL } from "@/data/site";
 
 export function generateStaticParams() {
   return TOURS.map((t) => ({ city: t.city, tourId: t.id }));
@@ -28,7 +30,25 @@ export async function generateMetadata({
   const { city, tourId } = await params;
   const tour = getTour(city as CityId, tourId);
   if (!tour) return {};
-  return { title: tour.title, description: tour.summary };
+  const path = `/tours/${tour.city}/${tour.id}`;
+  return {
+    title: tour.title,
+    description: tour.summary,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${tour.title} — Moroccan Mirage`,
+      description: tour.summary,
+      url: path,
+      type: "website",
+      images: [{ url: tour.hero, width: 1920, height: 1080, alt: tour.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${tour.title} — Moroccan Mirage`,
+      description: tour.summary,
+      images: [tour.hero],
+    },
+  };
 }
 
 export default async function TourPage({
@@ -42,8 +62,57 @@ export default async function TourPage({
   const cityMeta = CITY_META[tour.city];
   const siblings = TOURS_BY_CITY(tour.city).filter((t) => t.id !== tour.id).slice(0, 3);
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      name: tour.title,
+      description: tour.summary,
+      url: `${SITE_URL}/tours/${tour.city}/${tour.id}`,
+      image: `${SITE_URL}${tour.hero}`,
+      touristType: ["Cultural", "Adventure", "Sightseeing"],
+      provider: {
+        "@type": "TravelAgency",
+        name: "Moroccan Mirage",
+        url: SITE_URL,
+      },
+      itinerary: {
+        "@type": "ItemList",
+        numberOfItems: tour.itinerary.length,
+        itemListElement: tour.itinerary.map((d) => ({
+          "@type": "ListItem",
+          position: d.day,
+          name: d.title,
+        })),
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Morocco Tours", item: `${SITE_URL}/tours` },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: `Tours from ${cityMeta.name}`,
+          item: `${SITE_URL}/tours/${tour.city}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: tour.title,
+          item: `${SITE_URL}/tours/${tour.city}/${tour.id}`,
+        },
+      ],
+    },
+  ];
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         image={tour.hero}
         alt={tour.title}
@@ -78,7 +147,7 @@ export default async function TourPage({
               </div>
             </Reveal>
 
-            <RouteItinerary itinerary={tour.itinerary} />
+            <RouteItinerary itinerary={tour.itinerary.map(enrichDay)} />
           </div>
 
           {/* the manifest rail */}

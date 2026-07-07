@@ -22,6 +22,14 @@ export async function generateMetadata({
   return {
     title: `Tours from ${meta.name}`,
     description: meta.intro,
+    alternates: { canonical: `/tours/${city}` },
+    openGraph: {
+      title: `Tours from ${meta.name} — Moroccan Mirage`,
+      description: meta.intro,
+      url: `/tours/${city}`,
+      type: "website",
+      images: [{ url: meta.hero, width: 1920, height: 1080, alt: `${meta.name} — ${meta.epithet}` }],
+    },
   };
 }
 

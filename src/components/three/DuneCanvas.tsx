@@ -47,10 +47,10 @@ function DuneField() {
   return (
     <mesh ref={ref} geometry={geometry} position={[0, -2.1, -2]}>
       <meshBasicMaterial
-        color="#c9a227"
+        color="#8f6f14"
         wireframe
         transparent
-        opacity={0.16}
+        opacity={0.2}
       />
     </mesh>
   );
@@ -68,7 +68,7 @@ export default function DuneCanvas({ className = "" }: { className?: string }) {
         camera={{ position: [0, 1.4, 6], fov: 50 }}
         gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
       >
-        <fog attach="fog" args={["#0d0a07", 4, 13]} />
+        <fog attach="fog" args={["#ebe1ca", 4, 13]} />
         <DuneField />
       </Canvas>
     </div>

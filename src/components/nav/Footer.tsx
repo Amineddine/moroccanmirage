@@ -65,11 +65,18 @@ export default function Footer() {
           <BackToTop />
         </div>
 
-        {/* giant brand mark */}
+        {/* giant brand mark — slow marquee so the full name always reads */}
         <div className="mt-20 select-none overflow-hidden" aria-hidden>
-          <p className="text-outline font-brand whitespace-nowrap text-center text-[clamp(2.6rem,9.5vw,10rem)] leading-none tracking-[0.08em]">
-            MOROCCAN MIRAGE
-          </p>
+          <div className="animate-marquee flex w-max">
+            {[0, 1].map((copy) => (
+              <p
+                key={copy}
+                className="text-outline font-brand whitespace-nowrap text-[clamp(2.6rem,9.5vw,10rem)] leading-none tracking-[0.08em]"
+              >
+                MOROCCAN MIRAGE&nbsp;✦&nbsp;MOROCCAN MIRAGE&nbsp;✦&nbsp;
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-bone/[0.07] pt-8 sm:flex-row">

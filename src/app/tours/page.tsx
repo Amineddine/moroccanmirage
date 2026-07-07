@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   title: "Morocco Tours",
   description:
     "Select your starting point and embark on an unforgettable journey across the dunes, mountains, and ancient medinas.",
+  alternates: { canonical: "/tours" },
+  openGraph: {
+    title: "Morocco Tours — Moroccan Mirage",
+    description:
+      "Select your starting point and embark on an unforgettable journey across the dunes, mountains, and ancient medinas.",
+    url: "/tours",
+    type: "website",
+    images: [{ url: "/generated/hero-tours-hub.jpg", width: 1920, height: 1080, alt: "A desert caravan route at dusk in southern Morocco" }],
+  },
 };
 
 const NUMERALS = ["I", "II", "III", "IV"];
@@ -120,7 +129,7 @@ export default function ToursPage() {
                 <div className="absolute inset-x-0 bottom-0 z-20 p-7 md:p-12">
                   <p className="font-mono text-[10.5px] tracking-[0.3em] text-gold uppercase">
                     {GRAND_TRAVERSE.days}D / {GRAND_TRAVERSE.nights}N · {GRAND_TRAVERSE.start} ⟶{" "}
-                    {GRAND_TRAVERSE.end} · ~{GRAND_TRAVERSE.distanceKm.toLocaleString("en-US")} km ·{" "}
+                    {GRAND_TRAVERSE.end} · ~{GRAND_TRAVERSE.distanceMi.toLocaleString("en-US")} mi ·{" "}
                     {GRAND_TRAVERSE.stays} stays
                   </p>
                   <h2 className="font-display mt-4 text-[clamp(2.4rem,5.6vw,5.4rem)] font-light leading-[1] text-bone">

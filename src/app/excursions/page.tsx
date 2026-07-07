@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   title: "Curated Excursions",
   description:
     "Immerse yourself deeply for just a day. From cascading waterfalls to ancient red-clay citadels, these exclusive short journeys are designed for maximal impact.",
+  alternates: { canonical: "/excursions" },
+  openGraph: {
+    title: "Curated Excursions — Moroccan Mirage",
+    description:
+      "Immerse yourself deeply for just a day. From cascading waterfalls to ancient red-clay citadels, these exclusive short journeys are designed for maximal impact.",
+    url: "/excursions",
+    type: "website",
+    images: [{ url: "/generated/hero-excursions-hub.jpg", width: 1920, height: 1080, alt: "Golden hour over the Moroccan landscape" }],
+  },
 };
 
 export default function ExcursionsPage() {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Customize Your Trip",
   description:
     "Craft your signature journey. Eight questions, one exquisitely tailored Moroccan itinerary.",
+  alternates: { canonical: "/customize" },
 };
 
 export default function CustomizePage() {
