@@ -104,6 +104,8 @@ export const GRAND_TRAVERSE = {
   // ⚠︎ VERIFY: client to confirm the "valid before" date before publishing.
   quotation: {
     validBefore: "August 31, 2026",
+    payment:
+      "A 30% deposit by bank transfer secures your booking — we email you the transfer details once your itinerary is confirmed.",
     notes: [
       "Rates are per person based on two travelers sharing; a change in group size may affect the per-person price.",
       "Prices are subject to availability at the time of confirmation and may vary during peak season, festivals and public holidays.",
@@ -374,7 +376,7 @@ export const GRAND_INCLUDED = [
   "11 nights in hand-picked riads, a desert-style resort, a luxury Sahara camp & a city apart-hotel",
   "Daily breakfast; desert dinner (Day 6) and farewell dinner (Day 11)",
   "Private, air-conditioned vehicle with a professional English-speaking driver-guide throughout",
-  "Licensed local guides in Rabat, Fez, Marrakech & Essaouira",
+  "Licensed local guides in Fez & Marrakech",
   "Camel trek and overnight in Erg Chebbi",
   "Entrance fees to the monuments and scenic spots listed in the itinerary",
   "All inter-city transfers and airport meet-and-greet (arrival & departure)",

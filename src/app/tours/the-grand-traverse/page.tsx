@@ -215,7 +215,7 @@ export default function GrandTraversePage() {
                   <ManifestRow label="Route" value={`${GT.start} ⟶ ${GT.end} — closed loop`} />
                   <ManifestRow label="Duration" value={`${GT.days} Days / ${GT.nights} Nights`} />
                   <ManifestRow label="Style" value={GT.style} />
-                  <ManifestRow label="Guides" value="Local experts in four cities" />
+                  <ManifestRow label="Guides" value="Local experts in Fez & Marrakech" />
                   <div className="border-t border-dashed border-bone/20 pt-6">
                     <div className="flex items-baseline justify-between">
                       <span className="mono-note">From</span>
@@ -235,6 +235,13 @@ export default function GrandTraversePage() {
                   <div className="border-t border-dashed border-bone/20 pt-6">
                     <p className="plate-label">Notes for Quotation</p>
                     <ul className="mt-5 space-y-3">
+                      <li className="flex items-start gap-3 text-[12.5px] leading-[1.7] text-bone-dim">
+                        <span aria-hidden className="mt-[7px] h-[5px] w-[5px] shrink-0 rotate-45 bg-gold" />
+                        <span>
+                          <span className="text-bone">Payment — </span>
+                          {GT.quotation.payment}
+                        </span>
+                      </li>
                       <li className="flex items-start gap-3 text-[12.5px] leading-[1.7] text-bone-dim">
                         <span aria-hidden className="mt-[7px] h-[5px] w-[5px] shrink-0 rotate-45 bg-gold" />
                         <span>
