@@ -27,7 +27,11 @@ export default function GrandLog({
     if (!startDate) return null;
     const [y, m, d] = startDate.split("-").map(Number);
     const date = new Date(y, m - 1, d + (dayNo - 1));
-    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
   };
 
   useGSAP(
